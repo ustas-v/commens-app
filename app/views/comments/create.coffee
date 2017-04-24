@@ -1,9 +1,9 @@
-$('#main-comments-form').replaceWith '<%= j render 'comments/form' %>'
+$('#main-comments-form').replaceWith '<%= j render 'comments/form', main_form: true %>'
 
-<% if @comment.parent.nil? %>
+<% if @comment_source.parent.nil? %>
 $('#comments-container').prepend '<%= j comments_tree_for @comment_hash %>'
 <% else %>
-$('#comment-<%= @comment.parent_id %>').replaceWith(
+$('#comment-<%= @comment_source.parent_id %>').replaceWith(
   '<%= j comments_tree_for @comment_hash %>'
 )
 <% end %>

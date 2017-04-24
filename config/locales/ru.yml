@@ -6,6 +6,7 @@ ru:
       submited: Отправляем...
     write: Написать комментарий
     reply: Ответить
+    edit: Редактировать
   sessions:
     signout: Выйти
   account:

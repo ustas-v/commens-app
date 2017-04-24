@@ -1,5 +1,10 @@
+- if local_assigns.has_key? :main_form
+  - resource = Comment.new
+- else
+  - resource = @comment_source.presence || Comment.new
+
 .panel-body#main-comments-form
-  = form_for @reply_comment.presence || Comment.new, remote: true do |f|
+  = form_for resource, remote: true do |f|
     .form-group
       = f.hidden_field :parent_id
       = f.text_area :body, class: 'form-control', rows: 2, placeholder: t('comments.form.placeholder')

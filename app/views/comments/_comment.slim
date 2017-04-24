@@ -10,3 +10,7 @@
     | &nbsp; | &nbsp;
     span
       = link_to t('comments.reply'), reply_comment_path(comment), remote: true
+    - if can? :update, comment
+      | &nbsp; | &nbsp;
+      span
+        = link_to t('comments.edit'), edit_comment_path(comment), remote: true
