@@ -1,0 +1,15 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      a.navbar-brand href="/" CommentsApp
+
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li
+          a href="#" = t('comments.write')
+
+      ul.nav.navbar-nav.navbar-right
+        li
+          = link_to t('account.edit'), edit_user_registration_path
+        li
+          = link_to t('sessions.signout'), destroy_user_session_path, method: :delete

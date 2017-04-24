@@ -1,0 +1,17 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: пустой
+            login:
+              blank: пустой
+              taken: занят
+            email:
+              blank: пустой
+              taken: занят
+            current_password:
+              blank: пустой
+              invalid: неправильный
