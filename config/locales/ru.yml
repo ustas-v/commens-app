@@ -1,7 +1,21 @@
 ru:
   comments:
+    form:
+      placeholder: Напишите Ваш комментарий
+      submit: Отправить
+      submited: Отправляем...
     write: Написать комментарий
+    reply: Ответить
   sessions:
     signout: Выйти
   account:
-    edit: 'Изменить профиль'
+    edit: Изменить профиль
+  panel:
+    users: Пользователи
+  main:
+    my_friends: Мои друзья
+    comments: Комментарии
+  users:
+    header: Пользователи (%{count})
+    to_friend: Добавить
+    from_friend: Удалить

@@ -1,0 +1,12 @@
+.panel.panel-default id="comment-#{comment.id}"
+  .panel-heading
+    h4 = comment.user.login
+
+  .panel-body
+    blockquote
+      = comment.body
+  .panel-footer
+    span = comment.created_at.to_s(:comment)
+    | &nbsp; | &nbsp;
+    span
+      = link_to t('comments.reply'), reply_comment_path(comment), remote: true

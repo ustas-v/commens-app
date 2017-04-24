@@ -1,0 +1,6 @@
+.panel-body#main-comments-form
+  = form_for @reply_comment.presence || Comment.new, remote: true do |f|
+    .form-group
+      = f.hidden_field :parent_id
+      = f.text_area :body, class: 'form-control', rows: 2, placeholder: t('comments.form.placeholder')
+    .form-group      = f.submit t('comments.form.submit'), class: 'btn btn-primary', data: { disable_with: t('comments.form.submited') }

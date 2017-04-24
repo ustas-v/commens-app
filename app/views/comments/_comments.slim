@@ -1,0 +1,9 @@
+.panel-body
+  .panel.panel-default
+    .panel-heading
+      h4 = t('comments.write')
+    = render 'comments/form'
+
+  #comments-container
+    = comments_tree_for @comments
+

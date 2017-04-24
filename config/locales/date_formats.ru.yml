@@ -1,0 +1,6 @@
+ru:
+  date:
+    formats:
+      comment_today: 'Сегодня в %{time}'
+      comment_yesterday: 'Вчера в %{time}'
+      comment_other: '%{date} в %{time}'

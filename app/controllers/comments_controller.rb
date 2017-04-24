@@ -8,6 +8,15 @@ class CommentsController < ApplicationController
 
   ## Actions
 
+  def create
+    @comment = current_user.comments.create(comment_params)
+    @comment_hash = (@comment.parent.presence || @comment).hash_tree
+  end
+
+  def reply
+    @reply_comment = Comment.new parent_id: params[:id]
+  end
+
   ## Protected methods
   ## Callbacks before, after, other filters and etc
   protected
@@ -15,4 +24,8 @@ class CommentsController < ApplicationController
   ## Private methods
   ## Callbacks before, after, other filters and etc
   private
+
+  def comment_params
+    params.require(:comment).permit(:body, :parent_id)
+  end
 end

@@ -1,5 +1,8 @@
 class Comment < ApplicationRecord
   ## Modules, constants, attr_*
+
+  acts_as_tree order: 'created_at DESC'
+
   ## Associations, delegates
 
   belongs_to :user
@@ -7,7 +10,7 @@ class Comment < ApplicationRecord
 
   ## Validations
 
-  validates :user, presence: true
+  validates :user, :body, presence: true
 
   ## Callbacks
   ## Scopes

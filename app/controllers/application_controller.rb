@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   ## Helpers
+
+  layout -> { false if request.xhr? }
+
   ## Before, after and other filters
 
   before_action :configure_permitted_parameters, if: :devise_controller?

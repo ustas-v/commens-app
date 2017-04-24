@@ -1,0 +1,10 @@
+.container-fluid
+  .col-xs-5.col-md-5
+    .panel.panel-default
+      .panel-heading
+        h4 = t('users.header', count: @users.count)
+      table.table.table-striped.table-bordered.table-hover
+        = render @users
+
+  .col-xs-1.col-md-1
+  .col-xs-7.col-md-7

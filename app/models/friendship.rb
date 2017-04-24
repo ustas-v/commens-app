@@ -15,16 +15,33 @@ class Friendship < ApplicationRecord
   scope :accepted, -> { where accepted: true }
   scope :pending,  -> { where accepted: false }
 
+  scope :by_user,   -> (ids) { where user_id: ids }
+  scope :by_friend, -> (ids) { where friend_id: ids }
+
   ## Other meta methods
 
+  # This method using by user.friendships.friend_request!
   def self.friend_request!(user)
-    create!(
-      user_id: self.new.user_id, friend_id: user.id
-    ) if self.new.user_id != user.id
+    return if self.new.user_id == user.id
+
+    transaction do
+      # For tests automatically accepted
+      # For me
+      create(
+        user_id: self.new.user_id, friend_id: user.id, accepted: true
+      )
+      # For friend
+      create(
+        user_id: user.id, friend_id: self.new.user_id, accepted: true
+      )
+    end
   end
 
-  def self.accept_friend_request!(user)
+  def self.delete_friend!(user)
+    by_friend(user.id).destroy_all
+  end
 
+  def accept_friend_request!(user)
   end
 
   ## Protected methods

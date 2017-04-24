@@ -6,7 +6,9 @@ nav.navbar.navbar-default
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li
-          a href="#" = t('comments.write')
+          = link_to t('panel.users'), users_path
+        li
+          a href="/" = t('comments.write')
 
       ul.nav.navbar-nav.navbar-right
         li

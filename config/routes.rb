@@ -6,9 +6,18 @@ Rails.application.routes.draw do
     }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :comments, except: [:index, :new, :show]
+  resources :comments, except: [:index, :new, :show] do
+    member do
+      get :reply
+    end
+  end
 
-  resources :friendships, only: [:create, :destroy]
+  resources :users, only: [:index]
+  resources :friendships, only: [:destroy] do
+    member do
+      post :create
+    end
+  end
 
   root to: 'main#index'
 end

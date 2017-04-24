@@ -26,6 +26,11 @@ class User < ApplicationRecord
   ## Scopes
   ## Other meta methods
 
+  def friend_with?(user)
+    accepted_friendships.by_user([id, user.id]).
+      by_friend([id, user.id]).present?
+  end
+
   ## Protected methods
   ## Callbacks and etc.
   protected
