@@ -18,7 +18,6 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    puts "!!!!!!!!!@user: #{@user}"
     current_user.friendships.delete_friend!(@user)
   end
 
