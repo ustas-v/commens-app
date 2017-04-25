@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424190453) do
+ActiveRecord::Schema.define(version: 20170425045151) do
 
   create_table "comment_hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id",   null: false
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 20170424190453) do
     t.datetime "updated_at",                 null: false
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "oauths", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider",   null: false
+    t.string   "uid",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider", "uid"], name: "index_oauths_on_provider_and_uid", unique: true
+    t.index ["user_id"], name: "index_oauths_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

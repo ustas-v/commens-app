@@ -1,0 +1,4 @@
+omniauth:
+  facebook:
+    app_id: 905999116209572
+    secret: aef538e2e26bfbb0f753ea63943580cc

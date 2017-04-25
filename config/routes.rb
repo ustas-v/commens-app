@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     path_names: {
      sign_in: 'sign-in', sign_out: 'sign-out', password: 'secret',
      sign_up: 'sign-up'
-    }
+    }, controllers: { omniauth_callbacks: 'users/omni_auth' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :comments, except: [:index, :new, :show] do
